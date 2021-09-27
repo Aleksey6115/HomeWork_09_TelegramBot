@@ -24,7 +24,7 @@ namespace HomeWork_09
         static void Main(string[] args)
         {
             // Подключиться к боту
-            string token = "2043825204:AAFfiy1K20FTIHZ8ob9lsuKrPd3KvnhlY0g";
+            string token = File.ReadAllText("");
             bot = new TelegramBotClient(token);
 
             // Записать в лист список ранее загруженных файлов
