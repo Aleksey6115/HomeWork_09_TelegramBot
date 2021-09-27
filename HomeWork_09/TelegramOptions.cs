@@ -34,9 +34,16 @@ namespace HomeWork_09
         /// <param name="bot">бот</param>
         public async void Download(string chatid, string path, TelegramBotClient bot)
         {
-            using (FileStream fs = new FileStream(path, FileMode.Open))
+            try
             {
-                await bot.SendDocumentAsync(chatid, new Telegram.Bot.Types.InputFiles.InputOnlineFile(fs, path));
+                using (FileStream fs = new FileStream(path, FileMode.Open))
+                {
+                    await bot.SendDocumentAsync(chatid, new Telegram.Bot.Types.InputFiles.InputOnlineFile(fs, path));
+                }
+            }
+            catch
+            {
+                bot.SendTextMessageAsync(long.Parse(chatid), "Не так быстро...");
             }
         }
 
@@ -48,9 +55,16 @@ namespace HomeWork_09
         /// <param name="bot">бот</param>
         public async void DownloadPhoto(string chatid, string path, TelegramBotClient bot)
         {
-            using (FileStream fs = new FileStream(path, FileMode.Open))
+            try
             {
-                await bot.SendPhotoAsync(chatid, new Telegram.Bot.Types.InputFiles.InputOnlineFile(fs, path));
+                using (FileStream fs = new FileStream(path, FileMode.Open))
+                {
+                    await bot.SendPhotoAsync(chatid, new Telegram.Bot.Types.InputFiles.InputOnlineFile(fs, path));
+                }
+            }
+            catch
+            {
+                bot.SendTextMessageAsync(long.Parse(chatid), "Не так быстро...");
             }
         }
 

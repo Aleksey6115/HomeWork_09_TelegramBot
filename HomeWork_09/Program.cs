@@ -24,7 +24,7 @@ namespace HomeWork_09
         static void Main(string[] args)
         {
             // Подключиться к боту
-            string token = File.ReadAllText("");
+            string token = "2043825204:AAFfiy1K20FTIHZ8ob9lsuKrPd3KvnhlY0g";
             bot = new TelegramBotClient(token);
 
             // Записать в лист список ранее загруженных файлов
@@ -154,7 +154,7 @@ namespace HomeWork_09
 
                             else
                             {
-                                bot.SendTextMessageAsync(e.Message.Chat.Id, telegramoptions.ShowListFilesForDownload(list_file));
+                                    bot.SendTextMessageAsync(e.Message.Chat.Id, telegramoptions.ShowListFilesForDownload(list_file));
                             }
                             #endregion
                             break;
